@@ -1,10 +1,13 @@
 import React from "react"
 import Topbar from "./components/Topbar"
+import Headbar from "./components/Headbar"
 
 export default class Homepage extends React.Component {
 
   render() {
-    return<Topbar></Topbar>
+    return(<div><Topbar></Topbar>
+      <Headbar></Headbar></div>)
+      
 
 
   }
