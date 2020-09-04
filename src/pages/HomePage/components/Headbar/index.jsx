@@ -1,5 +1,6 @@
 import React from "react";
-import "./Headbar.css"
+import "./index.css"
+
 
 export default class Headbar extends React.Component{
 

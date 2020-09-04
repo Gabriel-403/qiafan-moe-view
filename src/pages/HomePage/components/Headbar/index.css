@@ -1,7 +1,7 @@
 
 @font-face {
     font-family: fz;
-    src: url("../../../assets/mainfont.ttf");
+    src: url("../../../../assets/mainfont.ttf");
   }
   .header {
     text-align: center;
