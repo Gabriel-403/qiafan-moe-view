@@ -7,16 +7,11 @@ export default class Homepage extends React.Component {
 
   render() {
     return (
-    <div>
-      <Topbar></Topbar>
-      <Headbar></Headbar>
-      <HomeCarousel></HomeCarousel>
-    </div>)
-
-
-
+      <div>
+        <Topbar></Topbar>
+        <Headbar></Headbar>
+        <HomeCarousel></HomeCarousel>
+      </div>
+    );
   }
-
-
-
 }
