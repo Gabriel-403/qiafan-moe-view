@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import HomePage from "./pages/HomePage/index"
+import Router from './routers'
 
 import 'antd/dist/antd.css';
 import "./index.scss"
 
 ReactDOM.render(
-  <HomePage/>,
+  <Router />,
   document.getElementById('root')
 );
 
