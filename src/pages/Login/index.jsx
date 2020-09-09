@@ -1,4 +1,5 @@
 import React from "react"
+import "./index.scss"
 import { Form, Input, Button, Checkbox } from 'antd';
 
 export default class Login extends React.Component {
