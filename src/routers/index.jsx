@@ -10,7 +10,7 @@ function router() {
     return (
         <Router>
             <Route path="/homepage" component={HomePage} />
-            <Route path="/index" component={Login} />
+            <Route path="/login" component={Login} />
         </Router>);
 }
 
