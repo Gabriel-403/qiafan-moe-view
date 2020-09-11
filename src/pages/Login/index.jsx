@@ -2,6 +2,7 @@ import React from "react"
 import "./index.scss"
 import { Form, Input, Button, Checkbox } from 'antd';
 
+
 export default class Login extends React.Component {
 
 
@@ -34,7 +35,7 @@ export default class Login extends React.Component {
 
         return (
            <div class="container">
-               <div class="main-bg" ></div>
+               <div class="main-bg"  ></div>
 
                 <Form
                     {...layout}
