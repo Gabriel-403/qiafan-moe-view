@@ -1,25 +1,50 @@
-.container { 
+.container {
     width: 100vw;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
-  
-.main-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-image:url("../../assets/img/bg1049a.png") ;
-  }
-    .ant-input,
-    .ant-input-affix-wrapper {
-        background-color:transparent !important
+
+    .main-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-image: url("../../assets/img/bg1049a.png");
+    }
+
+    .login-box {
+        position: relative;
+        width: 420px;
+        padding: 24px;
+        background-color: #ffffff66;
+        border-radius: 8px;
+        overflow: hidden;
+
+        .blur-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+            background-color: rgba(149, 60, 231, 0.1);
+            -webkit-filter: blur(15px) brightness(110%);
+            filter: blur(15px) brightness(110%);
+        }
+
+        .ant-input,
+        .ant-input-affix-wrapper {
+            background-color: transparent !important
+        }
     }
 }
