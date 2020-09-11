@@ -1,4 +1,24 @@
-.ant-input,.ant-input-affix-wrapper {
-background-color:  transparent
-!important
+.container { 
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  
+.main-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+    .ant-input,
+    .ant-input-affix-wrapper {
+        background-color:red !important
+    }
 }

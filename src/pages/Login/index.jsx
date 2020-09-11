@@ -33,7 +33,9 @@ export default class Login extends React.Component {
 
 
         return (
-           
+           <div class="container">
+               <div class="main-bg" ></div>
+
                 <Form
                     {...layout}
                     name="basic"
@@ -79,7 +81,7 @@ export default class Login extends React.Component {
                 </Button>
                     </Form.Item>
                 </Form>
-           
+           </div>
         );
     }
 
