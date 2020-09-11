@@ -10,7 +10,7 @@ export default class Login extends React.Component {
 
         const layout = {
             labelCol: {
-                span: 4,
+                span: 6,
             },
             wrapperCol: {
                 span: 16,
