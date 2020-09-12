@@ -54,6 +54,11 @@
             }
         }
 
+        .ant-checkbox-checked .ant-checkbox-inner{
+
+            background-color:#ffcf01;;
+        }
+
         h1 {
             font-size: 40px;
             color: #520ad8;
@@ -99,6 +104,8 @@
                 filter: blur(5px);
                 opacity: 0;
             }
+    
+            
 
             &:hover {
                 background: rgba(157, 33, 240, 0.3);
@@ -113,5 +120,6 @@
         }
     }
 
+    
 
 }
