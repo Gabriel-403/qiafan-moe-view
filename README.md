@@ -17,3 +17,12 @@ src
 3.鉴权模型
 
 
+# redux
+- actionTypes  常量，动作类型
+- actions      方法，在代码中调用
+- reducers     处理action的
+
+## 步骤
+1. 定义 actionTypes
+2. 定义 actions
+3. 定义 reducers

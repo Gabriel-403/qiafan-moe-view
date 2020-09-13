@@ -1,19 +1,23 @@
 import React from "react"
+import { BrowserRouter as Router, Route, Redirect, Switch } from "react-router-dom"
 
-import HomePage from "../pages/HomePage"
-import Login from "../pages/Login"
-import { BrowserRouter as Router, Route } from "react-router-dom"
-import MangerPage from "../pages/ManagePage"
-
+import HomePage from "../pages/HomePage";
+import Login from "../pages/Login";
+import MangerPage from "../pages/ManagePage";
 
 
 function router() {
-    return (
-        <Router>
-            <Route path="/homepage" component={HomePage} />
-            <Route path="/login" component={Login} />
-            <Router path="/ManagePage" component={MangerPage} />
-        </Router>);
+  return (
+    <Router>
+      <Switch>
+        <Route exact path="/homepage" component={HomePage} />
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/manage" component={MangerPage} />
+        <Redirect to="/homepage"></Redirect>
+      </Switch>
+    </Router>
+  );
 }
+
 
 export default router;
