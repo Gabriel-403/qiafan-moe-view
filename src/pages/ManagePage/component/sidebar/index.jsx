@@ -20,7 +20,7 @@ export default  class MangeSiderbar extends Component {
           title={
             <span>
               <MailOutlined />
-              <span>Navigation One</span>
+              <span>信息系统</span>
             </span>
           }
         >
@@ -33,7 +33,7 @@ export default  class MangeSiderbar extends Component {
             <Menu.Item key="4">Option 4</Menu.Item>
           </Menu.ItemGroup>
         </SubMenu>
-        <SubMenu key="sub2" icon={<AppstoreOutlined />} title="Navigation Two">
+        <SubMenu key="sub2" icon={<AppstoreOutlined />} title="文件系统">
           <Menu.Item key="5">Option 5</Menu.Item>
           <Menu.Item key="6">Option 6</Menu.Item>
           <SubMenu key="sub3" title="Submenu">
