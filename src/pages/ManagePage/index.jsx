@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
 import { onload } from '../../store/homePage/actions';
-import MangeSiderbar  from "./component/sidebar";
+import MangeSiderbar from "./component/sidebar";
+import MangeHeader from "./component/header"
 
 class MangerPage extends Component {
 
@@ -14,7 +15,11 @@ class MangerPage extends Component {
 	render() {
 		console.log('render')
 		return (
-		<MangeSiderbar>	</MangeSiderbar>
+		<div>
+			<MangeHeader></MangeHeader>
+			<MangeSiderbar>	</MangeSiderbar>
+		</div>
+
 		);
 	}
 }
