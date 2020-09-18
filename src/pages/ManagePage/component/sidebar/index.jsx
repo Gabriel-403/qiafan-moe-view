@@ -46,7 +46,7 @@ export default  class MangeSiderbar extends Component {
           title={
             <span>
               <SettingOutlined />
-              <span>Navigation Three</span>
+              <span>管理</span>
             </span>
           }
         >
