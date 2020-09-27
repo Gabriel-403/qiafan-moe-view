@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
 import { onload } from '../../store/homePage/actions';
-import MangeSiderbar from "./component/sidebar";
-import MangeHeader from "./component/header"
+import MangeSiderbar from "./component/Sidebar";
+import MangeHeader from "./component/Header"
 
 class MangerPage extends Component {
 

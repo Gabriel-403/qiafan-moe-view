@@ -12,7 +12,7 @@ function router() {
       <Switch>
         <Route exact path="/homepage" component={HomePage} />
         <Route exact path="/login" component={Login} />
-        <Route exact path="/manage" component={MangerPage} />
+        <Route exact path="/manage" component={MangerPage}/> 
         <Redirect to="/homepage"></Redirect>
       </Switch>
     </Router>
