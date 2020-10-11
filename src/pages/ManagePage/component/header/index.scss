@@ -1,18 +1,21 @@
-.managetitle {
+$bar-height: 40px;
+
+.manage-title {
+
   .site-page-header {
     border: 1px solid rgb(235, 237, 240);
-    .ant-page-header-heading-title{
 
-     font-family: fz;
-     color: #00c4ff;
-     font-size :2em; ;
+    .ant-page-header-heading-title {
+      font-family: fz;
+      color: #00c4ff;
+      font-size: 2em;
     }
   }
-  .icontag{
+
+  .icontag {
     margin: 0 0 0 60px;
     display: flex;
     align-items: center;
-    
   }
- 
+
 }

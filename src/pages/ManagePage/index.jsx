@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Route } from "react-router-dom"
+import { Route } from "react-router-dom"
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
 import { onload } from '../../store/homePage/actions';
 import MangeSiderbar from "./component/Sidebar";
 import MangeHeader from "./component/Header"
 import Culture from "./component/container"
-import router from '../../routers';
+
+import './index.scss';
 
 class MangerPage extends Component {
 
@@ -16,15 +17,17 @@ class MangerPage extends Component {
 	}
 
 	render() {
-		console.log('render')
+		console.log(this.props)
 		return (
-			<div>
+			<section className="manager-container">
 				<MangeHeader></MangeHeader>
-				<MangeSiderbar>	</MangeSiderbar>
-				<Route path="cultural"  component={Culture} />
-
-			</div>
-
+				<section className="manager-body">
+					<MangeSiderbar>	</MangeSiderbar>
+					<main className="manager-content">
+						<Route exact path="/manage/cultural" component={Culture} />
+					</main>
+				</section>
+			</section>
 		);
 	}
 }

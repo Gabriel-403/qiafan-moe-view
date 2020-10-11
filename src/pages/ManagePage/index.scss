@@ -1,0 +1,17 @@
+.manager-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+
+  .manager-body {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+
+    .manager-content {
+      flex: 1;
+      padding: 20px;
+      overflow: auto;
+    }
+  }
+}
