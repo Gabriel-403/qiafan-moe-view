@@ -7,45 +7,7 @@ class Managecontain extends Component {
   }
   render() {
     return (
-      <div>
-        <p>123456 chaos</p>
-        <p>123456 chaos</p>
-        <p>123456 chaos</p>
-        <p>123456 chaos</p>
-        <p>123456 chaos</p>
-        <p>123456 chaos</p>
-        <p>123456 chaos</p>
-        <p>123456 chaos</p>
-        <p>123456 chaos</p>
-        <p>123456 chaos</p>
-        <p>123456 chaos</p>
-        <p>123456 chaos</p>
-        <p>123456 chaos</p>
-        <p>123456 chaos</p>
-        <p>123456 chaos</p>
-        <p>123456 chaos</p>
-        <p>123456 chaos</p>
-        <p>123456 chaos</p>
-        <p>123456 chaos</p>
-        <p>123456 chaos</p>
-        <p>123456 chaos</p>
-        <p>123456 chaos</p>
-        <p>123456 chaos</p>
-        <p>123456 chaos</p>
-        <p>123456 chaos</p>
-        <p>123456 chaos</p>
-        <p>123456 chaos</p>
-        <p>123456 chaos</p>
-        <p>123456 chaos</p>
-        <p>123456 chaos</p>
-        <p>123456 chaos</p>
-        <p>123456 chaos</p>
-        <p>123456 chaos</p>
-        <p>123456 chaos</p>
-        <p>123456 chaos</p>
-        <p>123456 chaos</p>
-        <p>123456 chaos</p>
-        <p>123456 chaos</p>
+      <div>  
         <p>123456 chaos123</p>
       </div>
     );

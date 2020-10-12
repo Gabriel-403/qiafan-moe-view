@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 import { onload } from '../../store/homePage/actions';
 import MangeSiderbar from "./component/Sidebar";
 import MangeHeader from "./component/Header"
-import Culture from "./component/container"
+import Culture from "./component/container/component/Cultural"
 
 import './index.scss';
 

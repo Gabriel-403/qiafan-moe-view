@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Menu } from 'antd';
 import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
+import { Link } from "react-router-dom"
 
 import './index.scss';
 
@@ -35,7 +36,9 @@ export default class MangeSiderbar extends Component {
 
           </SubMenu>
           <SubMenu key="sub2" icon={<AppstoreOutlined />} title="文件系统">
-            <Menu.Item key="5">翻译</Menu.Item>
+            <Menu.Item key="5">
+              <Link to="/manage/cultural">翻译</Link>
+            </Menu.Item>
             <Menu.Item key="6">校对</Menu.Item>
 
             <Menu.Item key="7">测试</Menu.Item>
