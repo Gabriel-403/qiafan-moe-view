@@ -6,6 +6,7 @@ import { onload } from '../../store/homePage/actions';
 import MangeSiderbar from "./component/Sidebar";
 import MangeHeader from "./component/Header"
 import Culture from "./component/container/component/Cultural"
+import Summary from "./component/container/component/Summary"
 
 import './index.scss';
 
@@ -25,6 +26,7 @@ class MangerPage extends Component {
 					<MangeSiderbar>	</MangeSiderbar>
 					<main className="manager-content">
 						<Route exact path="/manage/cultural" component={Culture} />
+						<Route exact path="/manage/summary" component={Summary} />
 					</main>
 				</section>
 			</section>
