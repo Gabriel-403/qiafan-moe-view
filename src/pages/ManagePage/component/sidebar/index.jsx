@@ -30,7 +30,7 @@ export default class MangeSiderbar extends Component {
           >
 
             <Menu.Item key="1"><Link to="/manage/summary">汉化概述</Link></Menu.Item>
-            <Menu.Item key="2">人员概况</Menu.Item>
+            <Menu.Item key="2"><Link to="/manage/stuff">人员概况</Link></Menu.Item>
             <Menu.Item key="3">留言墙</Menu.Item>
             <Menu.Item key="4">作品列表</Menu.Item>
 

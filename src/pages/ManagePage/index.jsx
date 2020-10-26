@@ -9,6 +9,7 @@ import Culture from "./component/container/component/Cultural"
 import Summary from "./component/container/component/Summary"
 
 import './index.scss';
+import Stuff from './component/container/component/Stuff';
 
 class MangerPage extends Component {
 
@@ -19,7 +20,8 @@ class MangerPage extends Component {
 
 	render() {
 		console.log(this.props)
-		return (
+		return (<div>
+	
 			<section className="manager-container">
 				<MangeHeader></MangeHeader>
 				<section className="manager-body">
@@ -27,9 +29,11 @@ class MangerPage extends Component {
 					<main className="manager-content">
 						<Route exact path="/manage/cultural" component={Culture} />
 						<Route exact path="/manage/summary" component={Summary} />
+						<Route exact path="/manage/stuff" component={Stuff} />
 					</main>
 				</section>
 			</section>
+		</div>
 		);
 	}
 }

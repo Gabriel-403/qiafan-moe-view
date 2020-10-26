@@ -81,7 +81,7 @@ class Summary extends React.Component {
         </div>
 
         <LineChart
-          width={500}
+          width={1100}
           height={300}
           data={data}
           margin={{

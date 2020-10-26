@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Table, Button , Space,Input} from 'antd';
+import { Table, Button, Space, Input } from 'antd';
 import Highlighter from 'react-highlight-words';
 import { SearchOutlined } from '@ant-design/icons';
 
@@ -26,7 +26,7 @@ class Culture extends Component {
     console.log('selectedRowKeys changed: ', selectedRowKeys);
     this.setState({ selectedRowKeys });
   };
- 
+
   getColumnSearchProps = dataIndex => ({
     filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters }) => (
       <div style={{ padding: 8 }}>
@@ -75,8 +75,8 @@ class Culture extends Component {
           textToHighlight={text ? text.toString() : ''}
         />
       ) : (
-        text
-      ),
+          text
+        ),
   });
   handleSearch = (selectedKeys, confirm, dataIndex) => {
     confirm();
@@ -97,22 +97,22 @@ class Culture extends Component {
       {
         title: '文件名',
         dataIndex: 'name',
-        align:"center",
+        align: "center",
         width: '20%',
         ...this.getColumnSearchProps('name'),
-        
+
       },
       {
         title: '完成情况',
         dataIndex: 'age',
-        align:"center",
+        align: "center",
         width: '15%',
         ...this.getColumnSearchProps('age'),
       },
       {
         title: 'Address',
         dataIndex: 'address',
-        align:"center",
+        align: "center",
         width: '20%',
         ...this.getColumnSearchProps('address'),
       },
@@ -120,18 +120,18 @@ class Culture extends Component {
         title: "操作",
         render: (
           () => <div>
-            <Space style={ {marginBottom:16}}> 
-             <Button>下载</Button>
-            <Button>上传</Button>
-            <Button>删除</Button> 
+            <Space style={{ marginBottom: 16 }}>
+              <Button>下载</Button>
+              <Button>上传</Button>
+              <Button>删除</Button>
             </Space>
-           
+
           </div>
         ),
-        align:"center"
+        align: "center"
       }
     ];
-    
+
     const data = [];
     for (let i = 0; i < 46; i++) {
       data.push({
@@ -139,7 +139,7 @@ class Culture extends Component {
         name: `Edward King ${i}`,
         age: 32,
         address: `London, Park Lane no. ${i}`,
-    
+
       });
     }
     const { loading, selectedRowKeys } = this.state;
