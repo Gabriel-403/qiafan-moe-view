@@ -1,0 +1,23 @@
+.summary {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction:  row;
+
+  .cardbox {
+    .ant-card-body {
+      justify-content: space-around;
+      display: flex;
+      flex-direction: row !important;
+      align-items: center;
+      flex-wrap: nowrap;
+     
+     
+    }
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 55%;
+   
+  }
+}
