@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Table, Button, Space, Input } from 'antd';
 import Highlighter from 'react-highlight-words';
 import { SearchOutlined } from '@ant-design/icons';
+import "./index.scss"
 
 class Culture extends Component {
   state = {
