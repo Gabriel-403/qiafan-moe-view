@@ -25,7 +25,9 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: npm ci
-    - run: npm run-script build --if-present
+    - run:  |
+        npm install
+        npm run-script build --if-present
     - uses: manyuanrong/setup-ossutil@v1.0
       with:
           # endpoint 可以去oss控制台上查看
