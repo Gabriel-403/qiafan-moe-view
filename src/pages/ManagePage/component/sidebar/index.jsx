@@ -7,7 +7,7 @@ import './index.scss';
 
 const { SubMenu } = Menu;
 
-export default class MangeSiderbar extends Component {
+export default class MangeSidebar extends Component {
   render() {
     return (
       <div className="sidebar">
