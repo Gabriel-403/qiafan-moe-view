@@ -23,8 +23,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "debug": "ls -al ./src/pages/ManagePage",
-    "debug2": "ls -al ./src/pages/ManagePage/component",
     "submit": "git add . && git commit -m \"feat: update\" && git push"
   },
   "eslintConfig": {

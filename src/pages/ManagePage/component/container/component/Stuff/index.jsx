@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { Comment, Avatar, Form, Button, List, Input } from 'antd';
 import Item from 'antd/lib/list/Item';
 import moment from 'moment';
