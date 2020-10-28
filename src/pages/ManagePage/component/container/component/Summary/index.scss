@@ -1,0 +1,30 @@
+.summary {
+
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+
+  .cardbox {
+    .ant-card-body {
+      justify-content: space-around;
+      display: flex;
+      flex-direction: row !important;
+      align-items: center;
+      flex-wrap: nowrap;
+      background: rgba(24, 144, 255, 0.2) !important;
+
+    }
+
+    .ant-card {
+      background: transparent !important;
+    }
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 55%;
+
+
+  }
+}
