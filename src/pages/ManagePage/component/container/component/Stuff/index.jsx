@@ -32,7 +32,6 @@ const CommentList = ({ comments }) => (
         />
       </List.Item>
     )}
-    renderItem={props => <Comment {...props} />}
   />
 );
 
