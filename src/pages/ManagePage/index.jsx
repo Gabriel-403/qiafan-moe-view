@@ -3,8 +3,8 @@ import { Route } from "react-router-dom"
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
 import { onload } from '../../store/homePage/actions';
-import MangeSidebar from "./component/Sidebar";
-import MangeHeader from "./component/Header";
+import MangeSidebar from "./component/Sidebar/index";
+import MangeHeader from "./component/Header/index";
 import Culture from "./component/container/component/Cultural";
 import Summary from "./component/container/component/Summary";
 
