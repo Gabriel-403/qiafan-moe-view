@@ -39,4 +39,5 @@ jobs:
         access-key-id: ${{ secrets.ACCESS_KEY_ID }}
         access-key-secret: ${{ secrets.ACCESS_KEY_SECRET }}
     - name: Deploy To OSS
-      run: ossutil cp -rf build oss://qiafan-moe/
+      run: echo $PATH
+          ossutil cp -rf build oss://qiafan-moe/
