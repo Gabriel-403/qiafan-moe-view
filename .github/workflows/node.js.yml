@@ -40,4 +40,4 @@ jobs:
         access-key-secret: ${{ secrets.ACCESS_KEY_SECRET }}
     - name: Deploy To OSS
       run: echo $PATH
-          ossutil cp -rf dist oss://qiafan-moe/
+          ossutil cp public dist oss://qiafan-moe/ -rf
