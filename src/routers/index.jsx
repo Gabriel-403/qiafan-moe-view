@@ -1,5 +1,5 @@
 import React from "react"
-import { BrowserRouter as Router, Route, Redirect, Switch } from "react-router-dom"
+import { HashRouter as Router, Route, Redirect, Switch } from "react-router-dom"
 import HomePage from "../pages/HomePage";
 import Login from "../pages/Login";
 import MangerPage from "../pages/ManagePage";
@@ -13,7 +13,6 @@ function router() {
         <Route exact path="/login" component={Login} />
         <Route path="/manage" component={MangerPage}></Route>
         <Redirect to="/homepage"></Redirect>
-
       </Switch>
     </Router>
   );
