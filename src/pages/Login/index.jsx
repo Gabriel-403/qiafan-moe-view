@@ -35,11 +35,11 @@ export default class Login extends React.Component {
 
 
         return (
-            <div class="container">
-                <div class="main-bg"  ></div>
-                <main class="login-box">
-                    <div class="blur-bg" ></div>
-                    <div class="login-content">
+            <div className="container">
+                <div className="main-bg"  ></div>
+                <main className="login-box">
+                    <div className="blur-bg" ></div>
+                    <div className="login-content">
                         <h1>LOGIN</h1>
 
                         <Form

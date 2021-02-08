@@ -5,7 +5,10 @@
   "dependencies": {
     "@ant-design/icons": "^4.2.2",
     "antd": "^4.6.2",
+    "axios": "^0.21.1",
     "craco-less": "^1.17.0",
+    "create-react-app": "^4.0.1",
+    "dayjs": "^1.10.4",
     "immer": "^7.0.9",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -45,7 +48,7 @@
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "node-sass": "^4.14.1",
-    "react-hot-loader": "^4.5.3",
+    "react-hot-loader": "^4.13.0",
     "react-scripts": "3.4.3"
   },
   "proxy": "https://localhost:5000"

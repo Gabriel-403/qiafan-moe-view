@@ -2,10 +2,26 @@ import React, { Component } from 'react';
 import { Table, Button, Space, Input } from 'antd';
 import Highlighter from 'react-highlight-words';
 import { SearchOutlined } from '@ant-design/icons';
+import axios from 'axios'
+import dayjs from 'dayjs';
+
 import "./index.scss"
 
 class Culture extends Component {
+  static defaultProps = {
+    apiConfig: {
+      fileInfos: 'https://localhost:5000/api/fileinfos',
+      deleteFile: '',
+      deleteSelectedFiles: '',
+      uploadFile: '',
+      uploadSelectedFiles: '',
+      downloadFile: '',
+      downloadSelectedFiles: '',
+    }
+  }
+
   state = {
+    data: [],
     searchText: '',
     searchedColumn: '',
     selectedRowKeys: [], // Check here to configure the default column
@@ -25,7 +41,9 @@ class Culture extends Component {
 
   onSelectChange = selectedRowKeys => {
     console.log('selectedRowKeys changed: ', selectedRowKeys);
-    this.setState({ selectedRowKeys });
+    this.setState({ selectedRowKeys }
+
+    );
   };
 
   getColumnSearchProps = dataIndex => ({
@@ -67,18 +85,26 @@ class Culture extends Component {
         setTimeout(() => this.searchInput.select(), 100);
       }
     },
-    render: text =>
-      this.state.searchedColumn === dataIndex ? (
+    render: text => {
+      let _text = text;
+
+      if (typeof text === 'boolean') {
+        _text = text ? '是' : '否';
+      }
+
+      return this.state.searchedColumn === dataIndex ? (
         <Highlighter
           highlightStyle={{ backgroundColor: '#ffc069', padding: 0 }}
           searchWords={[this.state.searchText]}
           autoEscape
-          textToHighlight={text ? text.toString() : ''}
+          textToHighlight={_text}
         />
       ) : (
-          text
-        ),
+          _text
+        )
+    }
   });
+
   handleSearch = (selectedKeys, confirm, dataIndex) => {
     confirm();
     this.setState({
@@ -92,6 +118,30 @@ class Culture extends Component {
     this.setState({ searchText: '' });
   };
 
+  componentDidMount() {
+    const { apiConfig } = this.props;
+    axios.get(apiConfig.fileInfos)
+      .then((res) => {
+        console.log(res);
+
+        this.setState({
+          data: res.data
+        });
+      })
+      .catch(() => { console.error('error') })
+    console.log('componentDidMount')
+  };
+
+  onDownload = (id) => {
+    console.debug('download', id);
+  }
+
+  downloadSeleted = () => {
+    const { selectedRowKeys } = this.state;
+    axios.post('', {
+
+    });
+  }
 
   render() {
     const columns = [
@@ -105,57 +155,55 @@ class Culture extends Component {
       },
       {
         title: '完成情况',
-        dataIndex: 'age',
+        dataIndex: 'translation',
         align: "center",
         width: '15%',
-        ...this.getColumnSearchProps('age'),
+        ...this.getColumnSearchProps('translation'),
       },
       {
-        title: 'Address',
-        dataIndex: 'address',
+        title: '最后更改时间',
+        dataIndex: 'lastModityTIme',
         align: "center",
         width: '20%',
-        ...this.getColumnSearchProps('address'),
+        render: (item) => {
+          return dayjs(item).format('YYYY-MM-DD HH:mm:ss');
+        },
       },
       {
         title: "操作",
         render: (
-          () => <div>
-            <Space style={{ marginBottom: 16 }}>
-              <Button>下载</Button>
-              <Button>上传</Button>
-              <Button>删除</Button>
-            </Space>
-
-          </div>
+          (item, record) => {
+            // console.debug(record);
+            return (
+              <div>
+                <Space style={{ marginBottom: 16 }}>
+                  <Button onClick={() => this.onDownload(record.id)}>下载</Button>
+                  <Button>上传</Button>
+                  <Button>删除</Button>
+                </Space>
+              </div>
+            )
+          }
         ),
         align: "center"
       }
     ];
 
-    const data = [];
-    for (let i = 0; i < 46; i++) {
-      data.push({
-        key: i,
-        name: `Edward King ${i}`,
-        age: 32,
-        address: `London, Park Lane no. ${i}`,
-
-      });
-    }
-    const { loading, selectedRowKeys } = this.state;
+    const { loading, selectedRowKeys, data } = this.state;
     const rowSelection = {
       selectedRowKeys,
       onChange: this.onSelectChange,
     };
+
     const hasSelected = selectedRowKeys.length > 0;
+
     return (
       <div>
         <Space style={{ marginBottom: 16 }}>
           <Button type="primary" onClick={this.start} disabled={!hasSelected} loading={loading}>
             重新加载
           </Button>
-          <Button margin="5px">
+          <Button margin="5px" onClick={this.downloadSeleted}>
             批量上传
           </Button>
           <Button marginLeft="5px">
@@ -165,7 +213,7 @@ class Culture extends Component {
             {hasSelected ? `Selected ${selectedRowKeys.length} items` : ''}
           </span>
         </Space>
-        <Table rowSelection={rowSelection} columns={columns} dataSource={data} />
+        <Table rowSelection={rowSelection} columns={columns} dataSource={data} rowKey="id" />
       </div>
     );
   }

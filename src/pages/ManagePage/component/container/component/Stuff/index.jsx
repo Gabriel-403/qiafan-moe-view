@@ -20,9 +20,9 @@ const Editor = ({ onChange, onSubmit, submitting, value }) => (
 );
 const CommentList = ({ comments }) => (
   <List
-    dataSource={comments} 
+    dataSource={comments}
     itemLayout="horizontal"
-    header={comments.length} 
+    header={comments.length}
     renderItem={props => (
       <List.Item>
         <List.Item.Meta
@@ -42,6 +42,7 @@ class Stuff extends Component {
     submitting: false,
     value: '',
   };
+
   handleSubmit = () => {
     if (!this.state.value) {
       return;
@@ -69,20 +70,16 @@ class Stuff extends Component {
     }, 1000);
   };
 
-
   handleChange = e => {
     this.setState({
       value: e.target.value,
     });
   };
 
-
   render() {
     const { comments, submitting, value } = this.state;
-    return (<div class="stuff">
-
-
-      <>
+    return (
+      <div className="stuff">
         {comments.length > 0 && <CommentList comments={comments} />}
         <Comment
           avatar={
@@ -100,14 +97,9 @@ class Stuff extends Component {
             />
           }
         />
-      </>
-    </div>)
+      </div>
+    )
   }
-
-
-
-
-
-
 }
-export default Stuff
+
+export default Stuff;

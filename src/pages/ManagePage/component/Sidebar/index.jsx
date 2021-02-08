@@ -37,11 +37,15 @@ export default class MangeSidebar extends Component {
           </SubMenu>
           <SubMenu key="sub2" icon={<AppstoreOutlined />} title="文件系统">
             <Menu.Item key="5">
-              <Link to="/manage/cultural">翻译</Link>
+              <Link to="/manage/translation">翻译</Link>
             </Menu.Item>
-            <Menu.Item key="6">校对</Menu.Item>
+            <Menu.Item key="6">
+              <Link to="/manage/proofreading">校对</Link>
+            </Menu.Item>
 
-            <Menu.Item key="7">测试</Menu.Item>
+            <Menu.Item key="7">
+              <Link to="/manage/test">测试</Link>
+            </Menu.Item>
 
 
           </SubMenu>
@@ -56,7 +60,7 @@ export default class MangeSidebar extends Component {
           >
             <Menu.Item key="9">权限管理</Menu.Item>
             <Menu.Item key="10">职务管理</Menu.Item>
-            <Menu.Item key="11">消息中心</Menu.Item>
+            <Menu.Item key="11">界面管理</Menu.Item>
           </SubMenu>
         </Menu>
       </div>
