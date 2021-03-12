@@ -7,7 +7,8 @@ export default class Translation extends Component {
     return (
       <Culture
         apiConfig={{
-          fileInfos: 'https://localhost:5000/api/fileinfos'
+          fileInfos: 'https://localhost:5000/api/fileinfos',
+          downloadFile: 'https://localhost:5000/api/file',
         }}
       ></Culture>
     )

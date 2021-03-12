@@ -1,15 +1,13 @@
-.home-carousel {
-
-  width: 70rem;
-
-h3 { 
-    
-    color: #fff;
-    line-height: 30rem;
-    
-    text-align: center;
-    background: #364d79;
-  }
-
-  }
-  
+.box-carousel {
+    .home-carousel {
+        padding: 0 auto;
+        margin: 5rem auto;
+        width: 120rem;
+        text-align: center;
+        h3 {
+            color: #fff;
+            line-height: 45rem;
+            background: #364d79;
+        }
+    }
+}

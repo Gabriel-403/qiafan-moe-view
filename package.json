@@ -6,6 +6,7 @@
     "@ant-design/icons": "^4.2.2",
     "antd": "^4.6.2",
     "axios": "^0.21.1",
+    "axios-stream": "^1.0.17",
     "craco-less": "^1.17.0",
     "create-react-app": "^4.0.1",
     "dayjs": "^1.10.4",

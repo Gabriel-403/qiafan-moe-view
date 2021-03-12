@@ -15,7 +15,7 @@ class Culture extends Component {
       deleteSelectedFiles: '',
       uploadFile: '',
       uploadSelectedFiles: '',
-      downloadFile: '',
+      downloadFile: 'https://localhost:5000/api/file',
       downloadSelectedFiles: '',
     }
   }
@@ -122,27 +122,19 @@ class Culture extends Component {
     const { apiConfig } = this.props;
     axios.get(apiConfig.fileInfos)
       .then((res) => {
-        console.log(res);
-
         this.setState({
           data: res.data
         });
       })
       .catch(() => { console.error('error') })
-    console.log('componentDidMount')
   };
 
   onDownload = (id) => {
-    console.debug('download', id);
+    const { apiConfig } = this.props;
+    let url = apiConfig.downloadFile + "/?id=" + id
+    window.open(url);
   }
-
-  downloadSeleted = () => {
-    const { selectedRowKeys } = this.state;
-    axios.post('', {
-
-    });
-  }
-
+ 
   render() {
     const columns = [
       {
@@ -151,7 +143,6 @@ class Culture extends Component {
         align: "center",
         width: '20%',
         ...this.getColumnSearchProps('name'),
-
       },
       {
         title: '完成情况',

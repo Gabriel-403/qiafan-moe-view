@@ -5,6 +5,7 @@ import imgURL from '../../../../assets/img/logo2.png';
 import "./index.scss";
 
 
+
 export default class Homepage extends React.Component {
 
 

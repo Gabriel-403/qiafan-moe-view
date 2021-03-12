@@ -1,21 +1,19 @@
 $bar-height: 40px;
-
 .manage-title {
-
-  .site-page-header {
-    border: 1px solid rgb(235, 237, 240);
-
-    .ant-page-header-heading-title {
-      font-family: fz;
-      color: #00c4ff;
-      font-size: 2em;
+    .site-page-header {
+        border: 1px solid rgba(115, 160, 228, 0.541);
     }
-  }
-
-  .icontag {
-    margin: 0 0 0 60px;
-    display: flex;
-    align-items: center;
-  }
-
+    .ant-page-header-heading-title {
+        font-family: fz;
+        color: #00c4ff;
+        font-size: 2em;
+    }
+    .ant-page-header-ghost {
+        background-color: rgba(7, 93, 243, 0.112);
+    }
+    .icontag {
+        margin: 0 0 0 60px;
+        display: flex;
+        align-items: center;
+    }
 }
