@@ -3,6 +3,7 @@ import Topbar from "./components/Topbar"
 import Headbar from "./components/Headbar"
 import HomeCarousel from "./components/Carousel"
 import Card from "./components/Card"
+import Footer from "./components/Footer"
 import "./index.scss"
 
 export default class Homepage extends React.Component {
@@ -13,6 +14,7 @@ export default class Homepage extends React.Component {
         <Headbar></Headbar>
         <Card></Card>
         <HomeCarousel></HomeCarousel>
+        <Footer></Footer>
       </div>
     );
   }

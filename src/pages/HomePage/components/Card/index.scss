@@ -1,5 +1,9 @@
-.image {
-    width: 50rem;
-    height: 30rem;
-    object-fit: cover;
+.Card {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    .ant-image-img {
+        height: 100%;
+        padding: 5% 5%;
+    }
 }
