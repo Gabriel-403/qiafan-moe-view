@@ -1,12 +1,13 @@
 import React from "react"
 import "./index.scss"
 import { Form, Input, Button, Checkbox } from 'antd';
+import axios from "axios";
+import { Link } from "react-router-dom"
 
 
 
 export default class Login extends React.Component {
-
-
+    
     render() {
 
         const layout = {
@@ -23,16 +24,28 @@ export default class Login extends React.Component {
                 span: 16,
             },
         };
-
-
         const onFinish = values => {
-            console.log('Success:', values);
+            axios({
+
+                method:"get",
+                url:"https://localhost:5000/connect/token",
+                data:{
+                    grant_type:"password",
+                    username:values.username,
+                    password:values.Password,
+                    scope:"openid profile role user_api"
+                }
+            }).then(res => {
+                console(res)
+                return <Link to="/#/manage" />;
+            })
         };
 
         const onFinishFailed = errorInfo => {
             console.log('Failed:', errorInfo);
         };
-
+       
+       
 
         return (
             <div className="container">
@@ -41,7 +54,6 @@ export default class Login extends React.Component {
                     <div className="blur-bg" ></div>
                     <div className="login-content">
                         <h1>LOGIN</h1>
-
                         <Form
                             {...layout}
                             name="basic"
@@ -59,11 +71,10 @@ export default class Login extends React.Component {
                                         required: true,
                                         message: 'Please input your username!',
                                     },
-                                ]}
-                            >
-                                <Input />
+                                ]}>
+                               <Input  />
                             </Form.Item>
-
+                          
                             <Form.Item
                                 label="Password"
                                 name="password"
@@ -85,9 +96,11 @@ export default class Login extends React.Component {
                                 <Button type="primary" htmlType="submit"> Submit</Button>
                             </Form.Item>
                         </Form>
-                    </div></main>  </div>
+                    </div>
+                </main>
+            </div>
         );
     }
-
 }
+
 

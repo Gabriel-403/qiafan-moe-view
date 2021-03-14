@@ -134,7 +134,7 @@ class Culture extends Component {
     let url = apiConfig.downloadFile + "/?id=" + id
     window.open(url);
   }
- 
+
   render() {
     const columns = [
       {
