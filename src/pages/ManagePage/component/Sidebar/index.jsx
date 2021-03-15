@@ -28,7 +28,6 @@ export default class MangeSidebar extends Component {
               </span>
             }
           >
-
             <Menu.Item key="1"><Link to="/manage/summary">汉化概述</Link></Menu.Item>
             <Menu.Item key="2"><Link to="/manage/stuff">人员概况</Link></Menu.Item>
             <Menu.Item key="3">留言墙</Menu.Item>
@@ -40,14 +39,11 @@ export default class MangeSidebar extends Component {
               <Link to="/manage/translation">翻译</Link>
             </Menu.Item>
             <Menu.Item key="6">
-              <Link to="/manage/proofreading">校对</Link>
+              <Link to="/manage/profreading">校对</Link>
             </Menu.Item>
-
             <Menu.Item key="7">
               <Link to="/manage/test">测试</Link>
             </Menu.Item>
-
-
           </SubMenu>
           <SubMenu
             key="sub4"
@@ -58,8 +54,8 @@ export default class MangeSidebar extends Component {
               </span>
             }
           >
-            <Menu.Item key="9">权限管理</Menu.Item>
-            <Menu.Item key="10">职务管理</Menu.Item>
+            <Menu.Item key="9">任务管理</Menu.Item>
+            <Menu.Item key="10"><Link to="/manage/rolemanage">职务管理</Link></Menu.Item>
             <Menu.Item key="11">界面管理</Menu.Item>
           </SubMenu>
         </Menu>

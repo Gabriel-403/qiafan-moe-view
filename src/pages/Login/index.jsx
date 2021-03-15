@@ -2,12 +2,12 @@ import React from "react"
 import "./index.scss"
 import { Form, Input, Button, Checkbox } from 'antd';
 import axios from "axios";
-import { Link } from "react-router-dom"
+import qs from "qs"
 
 
 
 export default class Login extends React.Component {
-    
+
     render() {
 
         const layout = {
@@ -24,28 +24,32 @@ export default class Login extends React.Component {
                 span: 16,
             },
         };
+        let config = {
+            header: {
+                "Content-Type": "multipartform/form-data"
+            }
+        }
         const onFinish = values => {
-            axios({
-
-                method:"get",
-                url:"https://localhost:5000/connect/token",
-                data:{
-                    grant_type:"password",
-                    username:values.username,
-                    password:values.Password,
-                    scope:"openid profile role user_api"
-                }
-            }).then(res => {
-                console(res)
-                return <Link to="/#/manage" />;
-            })
+            axios.post("https://localhost:5000/connect/token", qs.stringify
+                ({
+                    grant_type: "password",
+                    username: values.username,
+                    password: values.password,
+                    scope: "openid profile role user_api",
+                    client_id: "WebClient",
+                    client_secret: "511536EF-F270-4058-80CA-1C89C192F69A"
+                }), config
+            )
+                .then(res => {
+                    window.location = "/#/manage";;
+                })
         };
 
         const onFinishFailed = errorInfo => {
             console.log('Failed:', errorInfo);
         };
-       
-       
+
+
 
         return (
             <div className="container">
@@ -72,9 +76,9 @@ export default class Login extends React.Component {
                                         message: 'Please input your username!',
                                     },
                                 ]}>
-                               <Input  />
+                                <Input />
                             </Form.Item>
-                          
+
                             <Form.Item
                                 label="Password"
                                 name="password"

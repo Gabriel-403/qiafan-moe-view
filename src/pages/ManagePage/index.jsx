@@ -10,7 +10,9 @@ import Summary from "./component/container/component/Summary";
 import './index.scss';
 import Stuff from './component/container/component/Stuff';
 import Translation from './pages/Translation';
-
+import Test from "./pages/Test";
+import Profreading from "./pages/Proofreading";
+import  RoleManage from "../ManagePage/component/container/component/RoleManage"
 class MangerPage extends Component {
 
 	componentDidMount() {
@@ -30,6 +32,10 @@ class MangerPage extends Component {
 						<Route exact path="/manage/translation" component={Translation} />
 						<Route exact path="/manage/summary" component={Summary} />
 						<Route exact path="/manage/stuff" component={Stuff} />
+						<Route exact path="/manage/test" component={Test} />
+						<Route exact path="/manage/profreading" component={Profreading} />
+						<Route exact path="/manage/rolemanage" component={RoleManage} />
+						
 					</main>
 				</section>
 			</section>

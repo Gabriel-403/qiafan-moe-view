@@ -166,7 +166,7 @@ class Culture extends Component {
           (item, record) => {
             // console.debug(record);
             return (
-              <div>
+              <div >
                 <Space style={{ marginBottom: 16 }}>
                   <Button onClick={() => this.onDownload(record.id)}>下载</Button>
                   <Button>上传</Button>
@@ -189,7 +189,7 @@ class Culture extends Component {
     const hasSelected = selectedRowKeys.length > 0;
 
     return (
-      <div>
+      <div className="cultural">
         <Space style={{ marginBottom: 16 }}>
           <Button type="primary" onClick={this.start} disabled={!hasSelected} loading={loading}>
             重新加载

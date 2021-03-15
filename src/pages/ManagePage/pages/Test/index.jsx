@@ -7,7 +7,8 @@ export default class Test extends Component {
     return (
       <Culture
         apiConfig={{
-          fileInfos: ''
+          fileInfos: 'https://localhost:5000/api/fileinfos',
+          downloadFile: 'https://localhost:5000/api/file',
         }}
       ></Culture>
     )
