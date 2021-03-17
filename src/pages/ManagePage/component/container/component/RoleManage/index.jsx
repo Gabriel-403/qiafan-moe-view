@@ -72,7 +72,6 @@ export default class RoleManage extends React.Component {
         key: '2',
         name: 'Jim Green',
         role: 42,
-  
         tags: ['loser'],
       },
       {

@@ -134,6 +134,20 @@ class Culture extends Component {
     let url = apiConfig.downloadFile + "/?id=" + id
     window.open(url);
   }
+  Upload = (e) => {
+    const { files } = e.target;
+    const file = files[0];
+
+    const fm = new FormData();
+    fm.append("File", file);
+    fm.append('fileName', file.name);
+
+    const config = {
+        headers: { "Content-Type": "multipart/form-data" }
+    };
+
+    axios.post('/api/file', fm, config);
+}
 
   render() {
     const columns = [
@@ -193,10 +207,8 @@ class Culture extends Component {
         <Space style={{ marginBottom: 16 }}>
           <Button type="primary" onClick={this.start} disabled={!hasSelected} loading={loading}>
             重新加载
-          </Button>
-          <Button margin="5px" onClick={this.downloadSeleted}>
-            批量上传
-          </Button>
+          </Button>        
+            <Input margin="5px"  type="file" onChange={this.Upload} /> 上传      
           <Button marginLeft="5px">
             批量下载
           </Button>
