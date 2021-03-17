@@ -6,9 +6,9 @@ import store from './store';
 import 'antd/dist/antd.css';
 import "./index.scss";
 
-ReactDOM.render(
+ReactDOM.render( 
   <Provider store={store}>
-    <Router />
+   <Router />
   </Provider>,
   document.getElementById('root')
 );

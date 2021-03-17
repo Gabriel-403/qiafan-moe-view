@@ -7,23 +7,18 @@ export default class RoleManage extends React.Component {
   render() {
     const columns = [
       {
-        title: 'Name',
+        title: '用户',
         dataIndex: 'name',
         key: 'name',
         render: text => (<a href>{text}</a>),
       },
       {
-        title: 'Age',
-        dataIndex: 'age',
+        title: '职责',
+        dataIndex: 'role',
         key: 'age',
       },
       {
-        title: 'Address',
-        dataIndex: 'address',
-        key: 'address',
-      },
-      {
-        title: 'Tags',
+        title: '描述负责部分',
         key: 'tags',
         dataIndex: 'tags',
         render: tags => (
@@ -43,38 +38,48 @@ export default class RoleManage extends React.Component {
         ),
       },
       {
-        title: 'Action',
-        key: 'action',
+        title: '职务变更',
+        key: 'change',
         render: (text, record) => (
           <Space size="middle">
-            <a href>Invite {record.name}</a>
-            <a href> Delete</a>
+            <a href>翻译</a>
+            <a href>测试</a>
+            <a href>校对 </a>
+            
           </Space>
         ),
       },
+      {
+        title: '用户操作',
+        key: 'action',
+        render: (text, record) => (
+          <Space size="middle">
+            <a href>删除用户</a>
+            <a href>重置密码</a>
+          </Space>
+        ),
+      }
     ];
     
     const data = [
       {
         key: '1',
-        name: 'John Brown',
-        age: 32,
-        address: 'New York No. 1 Lake Park',
+        name: '狗',
+        role: 32, 
         tags: ['nice', 'developer'],
       },
       {
         key: '2',
         name: 'Jim Green',
-        age: 42,
-        address: 'London No. 1 Lake Park',
+        role: 42,
+  
         tags: ['loser'],
       },
       {
         key: '3',
         name: 'Joe Black',
-        age: 32,
-        address: 'Sidney No. 1 Lake Park',
-        tags: ['cool', 'teacher'],
+        role: 32,    
+        tags: ['cool', '？'],
       },
     ];
     return (

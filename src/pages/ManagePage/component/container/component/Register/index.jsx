@@ -1,10 +1,9 @@
 import React from "react";
 import "./index.scss";
-import { Form, Input, Button, Checkbox } from 'antd';
+import { Form, Input, Button } from 'antd';
 import axios from "axios";
 import qs from "qs";
-import setAuthToken from "../../libs/authActions.js";
-import jwtdecode from 'jwt-decode';
+
 //import  store from "../../store"
 
 
@@ -33,7 +32,7 @@ export default class Login extends React.Component {
             }
         }
         const onFinish = values => {
-            axios.post("https://localhost:5000/connect/token", qs.stringify
+            axios.post("https://localhost:5000/user", qs.stringify
                 ({
                     grant_type: "password",
                     username: values.username,
@@ -44,12 +43,8 @@ export default class Login extends React.Component {
                 }), config
             )
                 .then(res => {
-                    const { access_token } = res.data
-                    console.debug(access_token)
-                    localStorage.setItem('jwToken', access_token);
-                    window.location = "/#/manage";
-                    setAuthToken(access_token);
-                    console.debug(jwtdecode(access_token));
+                   
+                    
                     
                 })
         };
@@ -61,12 +56,12 @@ export default class Login extends React.Component {
 
 
         return (
-            <div className="container">
+            <div className="Registercontainer">
                 <div className="main-bg"  ></div>
                 <main className="login-box">
                     <div className="blur-bg" ></div>
                     <div className="login-content">
-                        <h1>登录</h1>
+                        <h1>注册</h1>
                         <Form
                             {...layout}
                             name="basic"
@@ -82,7 +77,7 @@ export default class Login extends React.Component {
                                 rules={[
                                     {
                                         required: true,
-                                        message: 'Please input username!',
+                                        message: 'Please input your username!',
                                     },
                                 ]}>
                                 <Input />
@@ -94,17 +89,12 @@ export default class Login extends React.Component {
                                 rules={[
                                     {
                                         required: true,
-                                        message: 'Please input password!',
+                                        message: 'Please input your password!',
                                     },
                                 ]}
                             >
                                 <Input.Password />
                             </Form.Item>
-
-                            <Form.Item {...tailLayout} name="remember" valuePropName="checked">
-                                <Checkbox>Remember me</Checkbox>
-                            </Form.Item>
-
                             <Form.Item {...tailLayout}>
                                 <Button type="primary" htmlType="submit"> Submit</Button>
                             </Form.Item>

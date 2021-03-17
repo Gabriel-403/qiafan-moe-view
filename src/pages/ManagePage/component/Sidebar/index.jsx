@@ -57,6 +57,7 @@ export default class MangeSidebar extends Component {
             <Menu.Item key="9">任务管理</Menu.Item>
             <Menu.Item key="10"><Link to="/manage/rolemanage">职务管理</Link></Menu.Item>
             <Menu.Item key="11">界面管理</Menu.Item>
+            <Menu.Item key="11"><Link to="/manage/register">注册用户</Link></Menu.Item>
           </SubMenu>
         </Menu>
       </div>
