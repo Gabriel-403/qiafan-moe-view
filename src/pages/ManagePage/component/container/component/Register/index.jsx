@@ -2,7 +2,7 @@ import React from "react";
 import "./index.scss";
 import { Form, Input, Button } from 'antd';
 import axios from "axios";
-import qs from "qs";
+
 
 //import  store from "../../store"
 
@@ -26,34 +26,25 @@ export default class Login extends React.Component {
                 span: 16,
             },
         };
+
+
         let config = {
-            header: {
-                "Content-Type": "multipartform/form-data"
+            headers: {
+                "Content-Type": "x-www-form-urlencoded"
             }
-        }
+        };
+
         const onFinish = values => {
-            axios.post("https://localhost:5000/user", qs.stringify
-                ({
-                    grant_type: "password",
-                    username: values.username,
-                    password: values.password,
-                    scope: "openid profile role user_api",
-                    client_id: "WebClient",
-                    client_secret: "511536EF-F270-4058-80CA-1C89C192F69A"
-                }), config
-            )
-                .then(res => {
-                   
-                    
-                    
-                })
+            const fm = new FormData();
+            fm.append("UserName", values.username);
+            fm.append('Password', values.password);
+            fm.append('RoleName', "");
+            axios.post('/api/user', fm, config)
         };
 
         const onFinishFailed = errorInfo => {
             console.log('Failed:', errorInfo);
         };
-
-
 
         return (
             <div className="Registercontainer">

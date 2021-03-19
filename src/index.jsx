@@ -8,7 +8,8 @@ import "./index.scss";
 import setAuthToken from "./libs/authActions.js";
 
 
-
+ console.debug(localStorage.getItem("jwToken"));
+  setAuthToken(localStorage.getItem("jwToken"));
 ReactDOM.render( 
   <Provider store={store}>
    <Router />
@@ -16,6 +17,5 @@ ReactDOM.render(
   document.getElementById('root')
 )
 
-  console.debug(localStorage.getItem("jwtToken"));
-  setAuthToken(localStorage.getItem("jwtToken"));
+ 
 

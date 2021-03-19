@@ -7,11 +7,13 @@ import dayjs from 'dayjs';
 
 import "./index.scss"
 
+
 class Culture extends Component {
+
   static defaultProps = {
     apiConfig: {
       fileInfos: 'https://localhost:5000/api/fileinfos',
-      deleteFile: '',
+      deleteFile: 'https://localhost:5000/api/file',
       deleteSelectedFiles: '',
       uploadFile: '',
       uploadSelectedFiles: '',
@@ -117,6 +119,16 @@ class Culture extends Component {
     clearFilters();
     this.setState({ searchText: '' });
   };
+  refresh() {
+    const { apiConfig } = this.props;
+    axios.get(apiConfig.fileInfos)
+      .then((res) => {
+        this.setState({
+          data: res.data
+        });
+      })
+      .catch(() => { console.error('error') })
+  };
 
   componentDidMount() {
     const { apiConfig } = this.props;
@@ -141,15 +153,33 @@ class Culture extends Component {
     const fm = new FormData();
     fm.append("File", file);
     fm.append('fileName', file.name);
-
     const config = {
-        headers: { "Content-Type": "multipart/form-data" }
+      headers: { "Content-Type": "multipart/form-data" }
     };
 
-    axios.post('/api/file', fm, config);
-}
+    axios.post('/api/file', fm, config).then(() => {
+      this.refresh();
+    })
+      ;
+  }
+  Delete = (id) => {
+    const { apiConfig } = this.props;
+    axios.delete(apiConfig.deleteFile + "?id=" + id)
+      .then((res) => {
+        alert("删除成功")
+        this.refresh()
+      }).catch((res) => {
+        alert(res)
+      });
+  }
+
+
+
+
+
 
   render() {
+
     const columns = [
       {
         title: '文件名',
@@ -184,7 +214,7 @@ class Culture extends Component {
                 <Space style={{ marginBottom: 16 }}>
                   <Button onClick={() => this.onDownload(record.id)}>下载</Button>
                   <Button>上传</Button>
-                  <Button>删除</Button>
+                  <Button onClick={() => this.Delete(record.id)}>删除 </Button>
                 </Space>
               </div>
             )
@@ -207,8 +237,8 @@ class Culture extends Component {
         <Space style={{ marginBottom: 16 }}>
           <Button type="primary" onClick={this.start} disabled={!hasSelected} loading={loading}>
             重新加载
-          </Button>        
-            <Input margin="5px"  type="file" onChange={this.Upload} /> 上传      
+          </Button>
+          <Input margin="5px" type="file" onChange={this.Upload} />
           <Button marginLeft="5px">
             批量下载
           </Button>

@@ -7,6 +7,7 @@ export default class Proofreading extends Component {
     return (
       <Culture
         apiConfig={{
+          deleteFile: 'https://localhost:5000/api/file',
           fileInfos: 'https://localhost:5000/api/fileinfos',
           downloadFile: 'https://localhost:5000/api/file',
         }}

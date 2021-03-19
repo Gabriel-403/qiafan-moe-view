@@ -1,9 +1,24 @@
 import { Table, Tag, Space } from 'antd';
-import React from "react"
-import "./index.scss"
+import React from "react";
+import "./index.scss";
+import axios from "axios";
 
 export default class RoleManage extends React.Component {
 
+  state = {
+    data: [],
+  };
+
+  componentDidMount() {
+    axios.get("https://localhost:5000/api/users")
+      .then((res) => {
+        console.debug(res)
+        this.setState({
+          data: res.data
+        });
+      })
+      .catch(() => { console.error('error') })
+  };
   render() {
     const columns = [
       {

@@ -9,6 +9,7 @@ export default class Test extends Component {
         apiConfig={{
           fileInfos: 'https://localhost:5000/api/fileinfos',
           downloadFile: 'https://localhost:5000/api/file',
+          deleteFile: 'https://localhost:5000/api/file',
         }}
       ></Culture>
     )
