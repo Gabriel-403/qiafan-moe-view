@@ -39,7 +39,9 @@ export default class Login extends React.Component {
             fm.append("UserName", values.username);
             fm.append('Password', values.password);
             fm.append('RoleName', "");
-            axios.post('/api/user', fm, config)
+            axios.post('/api/user', fm, config).then((res) => {
+                alert("注册成功")
+              })
         };
 
         const onFinishFailed = errorInfo => {

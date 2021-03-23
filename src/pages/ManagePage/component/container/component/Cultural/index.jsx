@@ -140,7 +140,6 @@ class Culture extends Component {
       })
       .catch(() => { console.error('error') })
   };
-
   onDownload = (id) => {
     const { apiConfig } = this.props;
     let url = apiConfig.downloadFile + "/?id=" + id
@@ -172,11 +171,6 @@ class Culture extends Component {
         alert(res)
       });
   }
-
-
-
-
-
 
   render() {
 

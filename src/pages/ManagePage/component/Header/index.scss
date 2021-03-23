@@ -1,5 +1,10 @@
 $bar-height: 40px;
 .manage-title {
+    .username {
+        font-family: fz;
+        color: white;
+        font-size: x-large;
+    }
     .site-page-header {
         border: 1px solid rgba(115, 160, 228, 0.541);
     }
@@ -15,5 +20,8 @@ $bar-height: 40px;
         margin: 0 0 0 60px;
         display: flex;
         align-items: center;
+    }
+    .ant-page-header-heading-sub-title {
+        color: rgb(170, 169, 169);
     }
 }

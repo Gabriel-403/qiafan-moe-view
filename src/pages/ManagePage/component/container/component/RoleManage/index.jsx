@@ -5,42 +5,79 @@ import axios from "axios";
 
 export default class RoleManage extends React.Component {
 
-  state = {
-    data: [],
-  };
+  state = {};
 
   componentDidMount() {
     axios.get("https://localhost:5000/api/users")
       .then((res) => {
-        console.debug(res)
+        console.debug(res.data)
         this.setState({
           data: res.data
         });
       })
       .catch(() => { console.error('error') })
   };
+  refresh() {
+    axios.get("https://localhost:5000/api/users")
+      .then((res) => {
+        console.debug(res.data)
+        this.setState({
+          data: res.data
+        });
+      })
+      .catch(() => { console.error('error') })
+  };
+  DeleteRole = (user, role) => {
+
+    axios.delete('https://localhost:5000/api/role/?username=' + user + "&rolename=" + role)
+      .then((res) => {
+        alert("删除成功")
+        this.refresh()
+      }).catch((res) => {
+        alert(res)
+      });
+  }
+  ChangeRole = (user, role, newRole) => {
+
+    axios.put('https://localhost:5000/api/role/?username=' + user + "&oldrolename=" + role + '&rolename=' + newRole)
+      .then((res) => {
+        alert("更改权限成功")
+        this.refresh()
+      }).catch((res) => {
+        alert(res)
+      });
+  }
+  DeleteUser = (user, role, newRole) => {
+    axios.delete('https://localhost:5000/api/user/?username=' + user + "&rolename=" + role)
+      .then((res) => {
+        alert("删除用户成功")
+        this.refresh()
+      }).catch((res) => {
+        alert(res)
+      });
+  }
   render() {
     const columns = [
       {
         title: '用户',
-        dataIndex: 'name',
-        key: 'name',
+        dataIndex: 'user',
+        key: 'user',
         render: text => (<a href>{text}</a>),
       },
       {
-        title: '职责',
-        dataIndex: 'role',
-        key: 'age',
+        title: '登陆状态',
+        dataIndex: 'islogin',
+        key: 'islogin',
       },
       {
-        title: '描述负责部分',
-        key: 'tags',
-        dataIndex: 'tags',
+        title: ' 职责',
+        key: 'roles',
+        dataIndex: 'roles',
         render: tags => (
           <>
             {tags.map(tag => {
-              let color = tag.length > 5 ? 'geekblue' : 'green';
-              if (tag === 'loser') {
+              let color = (tag ==="Translation" ?'geekblue':tag === "Test"? 'cyan' : tag=== "Proofreading"? 'purple' : 'green');
+              if (tag === 'admin') {
                 color = 'volcano';
               }
               return (
@@ -57,10 +94,10 @@ export default class RoleManage extends React.Component {
         key: 'change',
         render: (text, record) => (
           <Space size="middle">
-            <a href>翻译</a>
-            <a href>测试</a>
-            <a href>校对 </a>
-            
+            <a href onClick={() => this.ChangeRole(record.user, record.roles, "Translation")}>翻译</a>
+            <a href onClick={() => this.ChangeRole(record.user, record.roles, "Test")}>测试</a>
+            <a href onClick={() => this.ChangeRole(record.user, record.roles, "Proofreading")}>校对 </a>
+
           </Space>
         ),
       },
@@ -69,33 +106,15 @@ export default class RoleManage extends React.Component {
         key: 'action',
         render: (text, record) => (
           <Space size="middle">
-            <a href>删除用户</a>
+            <a href onClick={() => this.DeleteUser(record.user, record.roles)}>删除用户</a>
+            <a href onClick={() => this.ChangeRole(record.user, record.roles, "Audience")}>删除权限</a>
             <a href>重置密码</a>
           </Space>
         ),
       }
     ];
-    
-    const data = [
-      {
-        key: '1',
-        name: '狗',
-        role: 32, 
-        tags: ['nice', 'developer'],
-      },
-      {
-        key: '2',
-        name: 'Jim Green',
-        role: 42,
-        tags: ['loser'],
-      },
-      {
-        key: '3',
-        name: 'Joe Black',
-        role: 32,    
-        tags: ['cool', '？'],
-      },
-    ];
+
+    const data = this.state.data
     return (
       <div className="rolemanage"> <Table columns={columns} dataSource={data} /></div>
     )

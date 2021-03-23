@@ -8,7 +8,7 @@ import ManageHeader from "./component/Header";
 import Summary from "./component/container/component/Summary";
 
 import './index.scss';
-import Stuff from './component/container/component/Stuff';
+import Comment from './component/container/component/Comment';
 import Translation from './pages/Translation';
 import Test from "./pages/Test";
 import Profreading from "./pages/Proofreading";
@@ -32,7 +32,7 @@ class MangerPage extends Component {
 					<main className="manager-content">
 						<Route exact path="/manage/translation" component={Translation} />
 						<Route exact path="/manage/summary" component={Summary} />
-						<Route exact path="/manage/stuff" component={Stuff} />
+						<Route exact path="/manage/comment" component={Comment} />
 						<Route exact path="/manage/test" component={Test} />
 						<Route exact path="/manage/profreading" component={Profreading} />
 						<Route exact path="/manage/rolemanage" component={RoleManage} />

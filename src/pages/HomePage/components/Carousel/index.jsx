@@ -9,18 +9,10 @@ export default class HomeCarousel extends React.Component {
       <div className="box-carousel">
         <section className="home-carousel">
           <Carousel autoplay >
-            <div >
-              <h3>1</h3>
+            <div className="carouselimg">
+              <img src=" http://chuantu.xyz/t6/741/1616183539x-1404791174.jpg" alt=""/>
             </div>
-            <div>
-              <h3>2</h3>
-            </div>
-            <div>
-              <h3>3</h3>
-            </div>
-            <div>
-              <h3>4</h3>
-            </div>
+    
           </Carousel>
         </section>
       </div>

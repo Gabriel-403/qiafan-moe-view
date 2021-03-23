@@ -4,10 +4,13 @@
         margin: 5rem auto;
         width: 120rem;
         text-align: center;
-        h3 {
+        .carouselimg {
             color: #fff;
             line-height: 45rem;
             background: #364d79;
+            max-height: 45rem;
+            max-width: 120rem;
+            width: 1005;
         }
     }
 }
