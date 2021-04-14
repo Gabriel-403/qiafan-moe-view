@@ -1,16 +1,27 @@
-.box-carousel {
-    .home-carousel {
-        padding: 0 auto;
-        margin: 5rem auto;
-        width: 120rem;
-        text-align: center;
-        .carouselimg {
-            color: #fff;
-            line-height: 45rem;
-            background: #364d79;
-            max-height: 45rem;
-            max-width: 120rem;
-            width: 1005;
-        }
-    }
-}
+                .box-carousel {
+                    .home-carousel {
+                        padding: 0 auto;
+                        margin: 5rem auto;
+                        height: 45rem;
+                        width: 120rem;
+                        text-align: center;
+                        .carouselimg {
+                            color: #fff;
+                            background-color: white;
+                            height: 45rem;
+                            width: 120rem;
+                            img {
+                                width: 100%;
+                                height: 100%;
+                                transition-duration: 1.5s;
+                                transition-property: all;
+                                transition-timing-function: ease;
+                                transition-delay: 0s;
+                            }
+                            img:hover {
+                                transform: scale(1.2);
+                                opacity: 0.8;
+                            }
+                        }
+                    }
+                }

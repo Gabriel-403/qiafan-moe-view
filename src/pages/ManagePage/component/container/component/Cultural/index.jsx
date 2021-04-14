@@ -131,8 +131,7 @@ class Culture extends Component {
   };
 
   componentDidMount() {
-    const { apiConfig } = this.props;
-    axios.get(apiConfig.fileInfos)
+    axios.get("https://localhost:5000/api/fileinfos")
       .then((res) => {
         this.setState({
           data: res.data
@@ -141,8 +140,7 @@ class Culture extends Component {
       .catch(() => { console.error('error') })
   };
   onDownload = (id) => {
-    const { apiConfig } = this.props;
-    let url = apiConfig.downloadFile + "/?id=" + id
+    let url = "https://localhost:5000/api/file/?id=" + id
     window.open(url);
   }
   Upload = (e) => {
@@ -162,8 +160,7 @@ class Culture extends Component {
       ;
   }
   Delete = (id) => {
-    const { apiConfig } = this.props;
-    axios.delete(apiConfig.deleteFile + "?id=" + id)
+    axios.delete("https://localhost:5000/api/file/?id=" + id)
       .then((res) => {
         alert("删除成功")
         this.refresh()

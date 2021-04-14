@@ -36,6 +36,7 @@ export default class Commention extends React.Component {
     comments: [],
     submitting: false,
     value: '',
+    datatime:""
   };
 
   componentDidMount() {

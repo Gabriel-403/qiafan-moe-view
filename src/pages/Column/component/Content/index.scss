@@ -1,0 +1,50 @@
+.ColumnBackground {
+    .ConnentColumn {
+        margin: 0 auto;
+        min-height: 80vh;
+        background-image: linear-gradient(to top right, rgba(13, 244, 252, 0.1), rgba(253, 165, 0, 0.2));
+        width: 80%;
+        display: flex;
+        justify-content: flex-end;
+        .AboutBox {
+            height: 100vh;
+            width: 20%;
+            margin: 0 auto;
+            .AvatarBox {
+                margin: 25px;
+                .site-calendar-demo-card {
+                    width: 300px;
+                    border: 1px solid #0d9bee;
+                    border-radius: 2px;
+                    position: relative;
+                    top: 30px;
+                    right: 100px;
+                    .ant-picker-calendar {
+                        background-color: rgba(255, 0, 212, 0.048);
+                    }
+                    .ant-picker-panel {
+                        background-color: transparent;
+                    }
+                }
+            }
+        }
+        .ColumnBox {
+            background-image: linear-gradient(to bottom right, rgba(126, 109, 223, 0.2), rgba(225, 155, 243, 0.26));
+            min-height: 100vh;
+            width: 60%;
+            margin: 0 auto;
+            h1 {
+                margin: 30px;
+                font-size: 40px;
+                font-weight: 1000;
+            }
+            h2 {
+                color: rgba(56, 50, 50, 0.445);
+                margin: 30px;
+            }
+            h3 {
+                margin: 20px;
+            }
+        }
+    }
+}

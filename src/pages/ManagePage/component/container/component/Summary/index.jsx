@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React from 'react'
 import { Card } from 'antd';
-import { WarningTwoTone } from '@ant-design/icons';
+import { WarningTwoTone ,ExperimentTwoTone,FileUnknownTwoTone ,PieChartTwoTone    } from '@ant-design/icons';
 import "./index.scss"
 import { RadialBarChart, RadialBar, Legend, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
 const data = [
@@ -45,38 +45,34 @@ class Summary extends React.Component {
           <Card style={{ width: 300, height: 150 }}
             hoverable="true" >
             <div>
-              <p>Card content</p>
-              <p>Card content</p>
-              <p>Card content</p>
+              <h2>文本总数</h2>
+              <h1>10</h1>      
+            </div>
+            <ExperimentTwoTone   style={{ fontSize: 80 }} ></ExperimentTwoTone>
+          </Card>
+          <Card style={{ width: 300, height: 150 }}
+            hoverable="true" >
+            <div>
+              <h2>剩余文本</h2>
+              <h1>20</h1>    
+            </div>
+            <FileUnknownTwoTone style={{ fontSize: 80 }} ></FileUnknownTwoTone>
+          </Card>
+          <Card style={{ width: 300, height: 150 }}
+            hoverable="true" >
+            <div>
+            <h2>最后期限</h2>
+              <h1>9天</h1> 
             </div>
             <WarningTwoTone style={{ fontSize: 80 }} ></WarningTwoTone>
           </Card>
           <Card style={{ width: 300, height: 150 }}
             hoverable="true" >
             <div>
-              <p>Card content</p>
-              <p>Card content</p>
-              <p>Card content</p>
+              <h2>进度</h2>
+              <h1>2%</h1> 
             </div>
-            <WarningTwoTone style={{ fontSize: 80 }} ></WarningTwoTone>
-          </Card>
-          <Card style={{ width: 300, height: 150 }}
-            hoverable="true" >
-            <div>
-              <p>Card content</p>
-              <p>Card content</p>
-              <p>Card content</p>
-            </div>
-            <WarningTwoTone style={{ fontSize: 80 }} ></WarningTwoTone>
-          </Card>
-          <Card style={{ width: 300, height: 150 }}
-            hoverable="true" >
-            <div>
-              <p>Card content</p>
-              <p>Card content</p>
-              <p>Card content</p>
-            </div>
-            <WarningTwoTone style={{ fontSize: 80 }} ></WarningTwoTone>
+            <PieChartTwoTone style={{ fontSize: 80 }} ></PieChartTwoTone>
           </Card>
         </div>
         </div>

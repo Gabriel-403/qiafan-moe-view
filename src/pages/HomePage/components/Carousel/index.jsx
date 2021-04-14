@@ -1,5 +1,6 @@
 import React from "react"
 import { Carousel } from 'antd';
+import img from "../../../../assets/img/f96020a07eee1760bc0b766a81df4675.png"
 
 import './index.scss'
 export default class HomeCarousel extends React.Component {
@@ -10,9 +11,8 @@ export default class HomeCarousel extends React.Component {
         <section className="home-carousel">
           <Carousel autoplay >
             <div className="carouselimg">
-              <img src=" http://chuantu.xyz/t6/741/1616183539x-1404791174.jpg" alt=""/>
+              <img src={img} alt=""/>
             </div>
-    
           </Carousel>
         </section>
       </div>
