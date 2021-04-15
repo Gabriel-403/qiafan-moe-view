@@ -7,6 +7,7 @@ import ListBox from "../pages/Column/component/List";
 import ConnentColumn from "../pages/Column/component/Content"
 
 
+
 function router() {
   return (
     <Router>
@@ -16,6 +17,7 @@ function router() {
         <Route path="/manage" component={MangerPage}></Route>
         <Route path="/column" component={ListBox}></Route>
         <Route path="/connentcolumn" component={ConnentColumn}></Route>
+       
         <Redirect to="/homepage"></Redirect>
       </Switch>
     </Router>

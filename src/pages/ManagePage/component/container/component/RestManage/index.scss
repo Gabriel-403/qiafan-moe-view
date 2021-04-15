@@ -1,0 +1,18 @@
+.cultural {
+    .ant-table-thead>tr>th {
+        background-color: rgba(24, 144, 255, 0.2) !important;
+    }
+    .ant-table {
+        color: whitesmoke !important;
+        background-color: rgba(24, 144, 255, 0.2) !important;
+        .ant-table-tbody>tr.ant-table-row-selected:hover>td {
+            background: rgba(48, 82, 251, 0.5)
+        }
+        .ant-table-tbody>tr.ant-table-row:hover>td {
+            background: #7609d959;
+        }
+        .ant-table-tbody>tr.ant-table-row-selected>td {
+            background: #1be0ff47;
+        }
+    }
+}

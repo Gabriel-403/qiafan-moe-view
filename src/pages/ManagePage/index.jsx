@@ -14,6 +14,7 @@ import Test from "./pages/Test";
 import Profreading from "./pages/Proofreading";
 import  RoleManage from "../ManagePage/component/container/component/RoleManage"
 import Register from "../ManagePage/component/container/component/Register"
+import Uploads from "../ManagePage/component/container/component/Upload";
 class MangerPage extends Component {
 
 	componentDidMount() {
@@ -37,6 +38,7 @@ class MangerPage extends Component {
 						<Route exact path="/manage/profreading" component={Profreading} />
 						<Route exact path="/manage/rolemanage" component={RoleManage} />
 						<Route exact path="/manage/register" component={Register} />
+						<Route path="/manage/uploads" component={Uploads}/>
 						
 					</main>
 				</section>
