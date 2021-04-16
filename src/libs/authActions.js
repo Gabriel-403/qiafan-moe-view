@@ -9,10 +9,14 @@ const setAuthToken = token => {
 axios.interceptors.response.use((response) => {
     return response;
 }, function(error) {
-    if (401 === error.response.status) {
-        window.location = '/#/login';
+    if (error.response == undefined) {
+        alert("请求无响应")
     } else {
+        if (401 === error.response.status) {
+            window.location = '/#/login';
+        }
         return Promise.reject(error);
     }
+
 });
 export default setAuthToken;

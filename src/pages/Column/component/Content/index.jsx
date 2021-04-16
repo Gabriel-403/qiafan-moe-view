@@ -2,37 +2,64 @@ import React from 'react';
 import "./index.scss";
 import Topbar from "../../../HomePage/components/Topbar/index.jsx";
 import { Affix, Avatar, Calendar } from 'antd';
+import axios from "axios"
 
 
 export default class ColumnContent extends React.Component {
-  render() {
 
+
+  state = {
+    data: {}
+  }
+
+  componentDidMount() {
+    let id = this.props.match.params.id
+    axios.get("https://localhost:5000/api/post/?id=" + id).then((res) => {
+      var d = new Date(res.data.createTime);
+      var datetime = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
+      let list =
+      {
+        title: res.data.title,
+        avatar: res.data.comment,
+        description: datetime,
+        content: res.data.content
+        //content: res.data.content.substring(0, 20) + "...",
+      }
+      this.setState({ data: list })
+      console.log(this.state.data.avatar)
+    })
+
+  }
+  render() {
     return (<div className="ColumnBackground">
       <Topbar></Topbar>
       <div className="ConnentColumn">
-    
         <div className="ColumnBox">
-          <h1>这是大新闻</h1>
-          <h2>这是时间</h2>
-          <h3>CSS3 渐变(gradients)可以让你在两个或多个指定的颜色之间显示平稳的过渡。以前可以让你在两个或多个指定的颜色之间显示平稳的过渡。以前可以让你在两个或多个指定的颜色之间显示平稳的过渡。以前可以让可以让你在两个或多个指定的颜色之间显示平稳的过渡。以前可以让你在两个或多个指定的颜色之间显示平稳的过渡。以前可以让你在两个或多个指定的颜色之间显示平稳的过渡。以前可以让你在两个或多个指定的颜色之间显示平稳的过渡。以前可以让你在两个或多个指定的颜色之间显示平稳的过渡。以前可以让你在两个或多个指定的颜色之间显示平稳的过渡。以前可以让你在两个或多个指定的颜色之间显示平稳的过渡。以前可以让你在两个或多个指定的颜色之间显示平稳的过渡。以前可以让你在两个或多个指定的颜色之间显示平稳的过渡。以前可以让你在两个或多个指定的颜色之间显示平稳的过渡。以前可以让你在两个或多个指定的颜色之间显示平稳的过渡。以前可以让你在两个或多个指定的颜色之间显示平稳的过渡。以前可以让你在两个或多个指定的颜色之间显示平稳的过渡。以前你在两个或多个指定的颜色之间显示平稳的过渡。以前可以让你在两个或多个指定的颜色之间显示平稳的过渡。以前可以让你在两个或多个指定的颜色之间显示平稳的过渡。以前可以让你在两个或多个指定的颜色之间显示平稳的过渡。以前可以让你在两个或多个指定的颜色之间显示平稳的过渡。以前,你必须使用图像来实现这些效果。但是,通过使用 CSS3 渐变(gradients),你可以减少下载的时间和宽带的使用。CSS3 渐变(gradients)可以让你在两个或多个指定的颜色之间显示平稳的过渡。以前,你必须使用图像来实现这些效果。但是,通过使用 CSS3 渐变(gradients),你可以减少下载的时间和宽带的使用。CSS3 渐变(gradients)可以让你在两个或多个指定的颜色之间显示平稳的过渡。以前,你必须使用图像来实现这些效果。但是,通过使用 CSS3 渐变(gradients),你可以减少下载的时间和宽带的使用。CSS3 渐变(gradients)可以让你在两个或多个指定的颜色之间显示平稳的过渡。以前,你必须使用图像来实现这些效果。但是,通过使用 CSS3 渐变(gradients),你可以减少下载的时间和宽带的使用。CSS3 渐变(gradients)可以让你在两个或多个指定的颜色之间显示平稳的过渡。以前,你必须使用图像来实现这些效果。但是,通过使用 CSS3 渐变(gradients),你可以减少下载的时间和宽带的使用。CSS3 渐变(gradients)可以让你在两个或多个指定的颜色之间显示平稳的过渡。以前,你必须使用图像来实现这些效果。但是,通过使用 CSS3 渐变(gradients),你可以减少下载的时间和宽带的使用。CSS3 渐变(gradients)可以让你在两个或多个指定的颜色之间显示平稳的过渡。以前,你必须使用图像来实现这些效果。但是,通过使用 CSS3 渐变(gradients),你可以减少下载的时间和宽带的使用。CSS3 渐变(gradients)可以让你在两个或多个指定的颜色之间显示平稳的过渡。以前,你必须使用图像来实现这些效果。但是,通过使用 CSS3 渐变(gradients),你可以减少下载的时间和宽带的使用。CSS3 渐变(gradients)可以让你在两个或多个指定的颜色之间显示平稳的过渡。以前,你必须使用图像来实现这些效果。但是,通过使用 CSS3 渐变(gradients),你可以减少下载的时间和宽带的使用。CSS3 渐变(gradients)可以让你在两个或多个指定的颜色之间显示平稳的过渡。以前,你必须使用图像来实现这些效果。但是,通过使用 CSS3 渐变(gradients),你可以减少下载的时间和宽带的使用。CSS3 渐变(gradients)可以让你在两个或多个指定的颜色之间显示平稳的过渡。以前,你必须使用图像来实现这些效果。但是,通过使用 CSS3 渐变(gradients),你可以减少下载的时间和宽带的使用。</h3>
+          <h1>{this.state.data.title}</h1>
+          <h2>{this.state.data.description}</h2>
+          <h3>{this.state.data.content}</h3>
+          <center> <img
+            width={600}
+            alt="logo"
+            src={this.state.data.avatar}
+          /> </center>  
         </div>
-        <div className="AboutBox"><Affix>
-          <div className="AvatarBox">
-            <Avatar
-              size={80}
-              src="https://camo.githubusercontent.com/c26f325fa8d482c5dfbc30be326e4ce27ac2ea70e1db3facf269bcb40de16a11/68747470733a2f2f73312e617831782e636f6d2f323032302f30392f30382f774d723373782e74682e6a7067"
-              alt="sagio"
-            />
-            <h2>sagio</h2>
-            <div className="site-calendar-demo-card">
-            <Calendar fullscreen={false} />
+            <div className="AboutBox"><Affix>
+              <div className="AvatarBox">
+                <Avatar
+                  size={80}
+                  src="https://camo.githubusercontent.com/c26f325fa8d482c5dfbc30be326e4ce27ac2ea70e1db3facf269bcb40de16a11/68747470733a2f2f73312e617831782e636f6d2f323032302f30392f30382f774d723373782e74682e6a7067"
+                  alt="sagio"
+                />
+                <h2>sagio</h2>
+                <div className="site-calendar-demo-card">
+                  <Calendar fullscreen={false} />
+                </div>
+              </div>
+            </Affix>
             </div>
-            
-            </div>
-        </Affix>
-        </div>
       </div>
-    </div>
+        </div>
     )
   }
 }

@@ -3,25 +3,37 @@ import { List, Avatar, Space } from 'antd';
 import Topbar from "../../../HomePage/components/Topbar/index.jsx"
 import React from 'react';
 import "./index.scss"
+import axios from 'axios';
 
 export default class ListBox extends React.Component {
 
   state = {
+    data: []
+  }
+
+  componentDidMount() {
+    axios.get("https://localhost:5000/api/posts").then((res) => {
+      var Listdata = [];
+      for (let i = 0; i < res.data.length; i++) {
+        Listdata.push(
+          {
+            href: "http://localhost:3000/#/connentcolumn/"+res.data[i].id,
+            title: res.data[i].title,
+            avatar: res.data[i].comment,
+            description: res.data[i].createTime,
+            content:res.data[i].content.substring(0, 120) + "..."
+            //content: res.data.content.substring(0, 20) + "...",
+          }
+        )
+      }
+      this.setState({ data: Listdata})
+      console.log(this.state.data)
+
+    })
 
   }
 
   render() {
-    const str = "Ant Design, a design language for background applications, is refined by Ant UED Team."
-    const listData = [];
-    listData.push({
-      href: 'https://ant.design',
-      title: `ant design part `,
-      avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
-      description:
-        'Ant Design, a design language for background applications, is refined by Ant UED Team.',
-      content:
-        str.substring(0, 20) + "...",
-    });
     const IconText = ({ icon, text }) => (
       <Space>
         {React.createElement(icon)}
@@ -41,7 +53,7 @@ export default class ListBox extends React.Component {
             },
             pageSize: 3,
           }}
-          dataSource={listData}
+          dataSource={this.state.data}
           footer={
             <div>
               <b>ant design</b> footer part
@@ -59,7 +71,7 @@ export default class ListBox extends React.Component {
                 <img
                   width={272}
                   alt="logo"
-                  src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"
+                  src={item.avatar}
                 />
               }
             >
@@ -73,7 +85,7 @@ export default class ListBox extends React.Component {
           )}
         />
       </div>
-      </div>);
+    </div>);
 
   }
 }

@@ -21,7 +21,8 @@
         "recharts": "^1.8.5",
         "redux": "^4.0.5",
         "redux-actions": "^2.6.5",
-        "redux-thunk": "^2.3.0"
+        "redux-thunk": "^2.3.0",
+        "wangeditor": "^4.6.14"
     },
     "scripts": {
         "start": "react-scripts start",
