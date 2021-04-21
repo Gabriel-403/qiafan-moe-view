@@ -3,7 +3,14 @@
         background-color: #3ca8eb4b;
         .footerbody {
             max-width: unset;
-            padding: 60px;
+            padding: 100px;
+            h1 {
+                color: beige;
+            }
+            p {
+                font-size: large;
+                color: white;
+            }
         }
     }
 }

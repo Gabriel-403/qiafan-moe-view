@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Table, Button, Space, Input } from 'antd';
+import { Table, Button, Space, Input, Upload } from 'antd';
 import Highlighter from 'react-highlight-words';
 import { SearchOutlined } from '@ant-design/icons';
 import axios from 'axios'
@@ -12,6 +12,8 @@ class Culture extends Component {
 
   static defaultProps = {
     apiConfig: {
+      situation:"",
+      role: "",
       fileInfos: 'https://localhost:5000/api/fileinfos',
       deleteFile: 'https://localhost:5000/api/file',
       deleteSelectedFiles: '',
@@ -120,19 +122,22 @@ class Culture extends Component {
     this.setState({ searchText: '' });
   };
   refresh() {
-    const { apiConfig } = this.props;
-    axios.get(apiConfig.fileInfos)
+    console.log(this.props.apiConfig.role)
+    axios.get("https://localhost:5000/api/fileinfos/?point=" + this.props.apiConfig.role)
       .then((res) => {
+       
         this.setState({
           data: res.data
         });
       })
       .catch(() => { console.error('error') })
-  };
+  };//数据变更后刷新数据
 
   componentDidMount() {
-    axios.get("https://localhost:5000/api/fileinfos")
+    console.log(this.props.apiConfig.role)
+    axios.get("https://localhost:5000/api/fileinfos/?point=" + this.props.apiConfig.role)
       .then((res) => {
+        console.debug(res.data)
         this.setState({
           data: res.data
         });
@@ -142,6 +147,22 @@ class Culture extends Component {
   onDownload = (id) => {
     let url = "https://localhost:5000/api/file/?id=" + id
     window.open(url);
+  }//下载文件
+
+  aDownload = (id, e) => {
+    const { files } = e.target;
+    const file = files[0];
+    const fm = new FormData();
+    fm.append("File", file);
+    fm.append('fileName', file.name);
+    fm.append(this.props.apiConfig.situation,true)
+    const config = {
+      headers: { "Content-Type": "multipart/form-data" }
+    };
+    axios.put('https://localhost:5000/api/fileupdta/?id='+id, fm, config).then(() => {
+      this.refresh();
+    })
+
   }
   Upload = (e) => {
     const { files } = e.target;
@@ -158,7 +179,7 @@ class Culture extends Component {
       this.refresh();
     })
       ;
-  }
+  }//上传文件
   Delete = (id) => {
     axios.delete("https://localhost:5000/api/file/?id=" + id)
       .then((res) => {
@@ -167,7 +188,7 @@ class Culture extends Component {
       }).catch((res) => {
         alert(res)
       });
-  }
+  }//删除文件
 
   render() {
 
@@ -181,10 +202,10 @@ class Culture extends Component {
       },
       {
         title: '完成情况',
-        dataIndex: 'translation',
+        dataIndex: this.props.apiConfig.situation.toLowerCase( ),
         align: "center",
         width: '15%',
-        ...this.getColumnSearchProps('translation'),
+        ...this.getColumnSearchProps(this.props.situation),
       },
       {
         title: '最后更改时间',
@@ -198,14 +219,15 @@ class Culture extends Component {
       {
         title: "操作",
         render: (
-          (item, record) => {
-            // console.debug(record);
+          (item, record, index) => {
+
             return (
               <div >
                 <Space style={{ marginBottom: 16 }}>
                   <Button onClick={() => this.onDownload(record.id)}>下载</Button>
-                  <Button>上传</Button>
                   <Button onClick={() => this.Delete(record.id)}>删除 </Button>
+                  <Input type="file" onChange={(e) => this.aDownload(record.id,e)} showUploadList={false} />
+
                 </Space>
               </div>
             )

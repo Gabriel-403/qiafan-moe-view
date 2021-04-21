@@ -8,7 +8,7 @@ import "./index.scss";
 import setAuthToken from "./libs/authActions.js";
 
 
- console.debug(localStorage.getItem("jwToken"));
+
   setAuthToken(localStorage.getItem("jwToken"));
 ReactDOM.render( 
   <Provider store={store}>

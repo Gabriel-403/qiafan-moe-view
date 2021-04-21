@@ -5,6 +5,7 @@ import { Affix, Avatar, Calendar } from 'antd';
 import axios from "axios"
 
 
+
 export default class ColumnContent extends React.Component {
 
 
@@ -36,7 +37,7 @@ export default class ColumnContent extends React.Component {
       <div className="ConnentColumn">
         <div className="ColumnBox">
           <h1>{this.state.data.title}</h1>
-          <h2>{this.state.data.description}</h2>
+          <h2>{ this.state.data.description}</h2>
           <h3>{this.state.data.content}</h3>
           <center> <img
             width={600}

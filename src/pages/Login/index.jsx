@@ -45,11 +45,10 @@ export default class Login extends React.Component {
             )
                 .then(res => {
                     const { access_token } = res.data
-                    console.debug(access_token)
                     localStorage.setItem('jwToken', access_token);
                     window.location = "/#/manage/summary";
                     setAuthToken(access_token);
-                    console.debug(jwtdecode(access_token));
+                    
                    
                     
                 })

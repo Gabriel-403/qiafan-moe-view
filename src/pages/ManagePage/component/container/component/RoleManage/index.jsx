@@ -10,7 +10,7 @@ export default class RoleManage extends React.Component {
   componentDidMount() {
     axios.get("https://localhost:5000/api/users")
       .then((res) => {
-        console.debug(res.data)
+        
         this.setState({
           data: res.data
         });
@@ -20,7 +20,7 @@ export default class RoleManage extends React.Component {
   refresh() {
     axios.get("https://localhost:5000/api/users")
       .then((res) => {
-        console.debug(res.data)
+      
         this.setState({
           data: res.data
         });
@@ -64,11 +64,7 @@ export default class RoleManage extends React.Component {
         key: 'user',
         render: text => (<a href>{text}</a>),
       },
-      {
-        title: '登陆状态',
-        dataIndex: 'islogin',
-        key: 'islogin',
-      },
+  
       {
         title: ' 职责',
         key: 'roles',

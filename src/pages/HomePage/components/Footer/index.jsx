@@ -6,7 +6,10 @@ export default class Footer extends React.Component {
     return (<div className="footer">
       <footer>
         <div className="footerbody">
-          <p> 123</p>
+        <h1>关于</h1>
+          <p> GitHub：https://github.com/Gabriel-403/qiafan-moe-view</p>
+          <p> 网址：qiafan-moe.com</p>
+
         </div>
       </footer>
     </div>)

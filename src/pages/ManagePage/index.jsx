@@ -15,6 +15,8 @@ import Profreading from "./pages/Proofreading";
 import  RoleManage from "../ManagePage/component/container/component/RoleManage"
 import Register from "../ManagePage/component/container/component/Register"
 import Uploads from "../ManagePage/component/container/component/Upload";
+import RestManage from "../ManagePage/component/container/component/RestManage"
+
 class MangerPage extends Component {
 
 	componentDidMount() {
@@ -39,6 +41,7 @@ class MangerPage extends Component {
 						<Route exact path="/manage/rolemanage" component={RoleManage} />
 						<Route exact path="/manage/register" component={Register} />
 						<Route path="/manage/uploads" component={Uploads}/>
+						<Route path="/manage/taskmanage" component={RestManage}/>
 						
 					</main>
 				</section>

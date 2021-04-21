@@ -7,6 +7,8 @@ export default class Translation extends Component {
     return (
       <Culture
         apiConfig={{
+          situation:"Translation",
+          role:"Translation",
           fileInfos: 'https://localhost:5000/api/fileinfos',
           downloadFile: 'https://localhost:5000/api/file',
           deleteFile: 'https://localhost:5000/api/file',

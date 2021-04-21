@@ -4,6 +4,7 @@ import Topbar from "../../../HomePage/components/Topbar/index.jsx"
 import React from 'react';
 import "./index.scss"
 import axios from 'axios';
+import dayjs from 'dayjs';
 
 export default class ListBox extends React.Component {
 
@@ -20,7 +21,7 @@ export default class ListBox extends React.Component {
             href: "http://localhost:3000/#/connentcolumn/"+res.data[i].id,
             title: res.data[i].title,
             avatar: res.data[i].comment,
-            description: res.data[i].createTime,
+            description:   dayjs(res.data[i].createTime).format('YYYY-MM-DD HH:mm:ss'),
             content:res.data[i].content.substring(0, 120) + "..."
             //content: res.data.content.substring(0, 20) + "...",
           }
@@ -63,9 +64,7 @@ export default class ListBox extends React.Component {
             <List.Item
               key={item.title}
               actions={[
-                <IconText icon={StarOutlined} text="156" key="list-vertical-star-o" />,
-                <IconText icon={LikeOutlined} text="156" key="list-vertical-like-o" />,
-                <IconText icon={MessageOutlined} text="2" key="list-vertical-message" />,
+                
               ]}
               extra={
                 <img

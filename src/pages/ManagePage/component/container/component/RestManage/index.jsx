@@ -1,28 +1,25 @@
 import React, { Component } from 'react';
-import { Table, Button, Space, Input } from 'antd';
-import Highlighter from 'react-highlight-words';
+import { Table, Button, Space, Input, Checkbox, Select } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import axios from 'axios'
 import dayjs from 'dayjs';
 
 import "./index.scss"
 
-
+const { Option } = Select;
 class RestMange extends Component {
 
-  static defaultProps = {
-    apiConfig: {
-      fileInfos: 'https://localhost:5000/api/fileinfos',
-      deleteFile: 'https://localhost:5000/api/file',
-      deleteSelectedFiles: '',
-      uploadFile: '',
-      uploadSelectedFiles: '',
-      downloadFile: 'https://localhost:5000/api/file',
-      downloadSelectedFiles: '',
-    }
-  }
-
   state = {
+
+    change: { Translation: "", Proofreading: "", Embellishment: "", user: "" },
+    options: [
+      { label: '翻译', value: 'Translation' },
+      { label: '校对', value: "Proofreading" },
+      { label: '测试', value: "Embellishment" },
+    ],
+
+    select: [],
+    user: [],
     data: [],
     searchText: '',
     searchedColumn: '',
@@ -87,24 +84,7 @@ class RestMange extends Component {
         setTimeout(() => this.searchInput.select(), 100);
       }
     },
-    render: text => {
-      let _text = text;
 
-      if (typeof text === 'boolean') {
-        _text = text ? '是' : '否';
-      }
-
-      return this.state.searchedColumn === dataIndex ? (
-        <Highlighter
-          highlightStyle={{ backgroundColor: '#ffc069', padding: 0 }}
-          searchWords={[this.state.searchText]}
-          autoEscape
-          textToHighlight={_text}
-        />
-      ) : (
-          _text
-        )
-    }
   });
 
   handleSearch = (selectedKeys, confirm, dataIndex) => {
@@ -120,22 +100,37 @@ class RestMange extends Component {
     this.setState({ searchText: '' });
   };
   refresh() {
-    const { apiConfig } = this.props;
-    axios.get(apiConfig.fileInfos)
+    axios.get("https://localhost:5000/api/admin/fileinfos")
       .then((res) => {
         this.setState({
           data: res.data
         });
       })
       .catch(() => { console.error('error') })
+
   };
 
   componentDidMount() {
-    axios.get("https://localhost:5000/api/fileinfos")
+    axios.get("https://localhost:5000/api/admin/fileinfos")
       .then((res) => {
         this.setState({
           data: res.data
         });
+        let start = [];
+        this.state.data.translation==="Translation"?start.push("Translation"):start.push();
+        this.state.data.proofreading==="Proofreading"?start.push("Proofreading"):start.push();
+        this.state.data.embellishment==="Embellishment"?start.push("Embellishment"):start.push();
+        console.log(start)
+        this.setState({select:start})
+      })
+      .catch(() => { console.error('error') })
+  
+    axios.get("https://localhost:5000/api/users")
+      .then((res) => {
+        this.setState({
+          user: res.data
+        });
+
       })
       .catch(() => { console.error('error') })
   };
@@ -168,9 +163,55 @@ class RestMange extends Component {
         alert(res)
       });
   }
+  groupChange = (id, index, e) => {
+    
+    let oldstate = this.state.data
+    let newdata = {
+      translation: !(e.indexOf("Translation") === -1),
+      proofreading: !(e.indexOf("Proofreading") === -1),
+      embellishment: !(e.indexOf("Embellishment") === -1)
+    }
+    console.log(newdata)
+    let changedat = { ...this.state.data[index], ...newdata }
+    oldstate[index] = changedat
+    this.setState({ data: oldstate })
+  }//文件完成情况变更
+
+  userChange = (id, index, e) => { 
+    let oldstate = this.state.data
+    let newdata = {
+      userId: e
+    }
+    let changedat = { ...this.state.data[index], ...newdata }
+    oldstate[index] = changedat
+    this.setState({ data: oldstate })
+
+  }//负责人变更
+
+  onChangeAll = (id, index) => {
+    let userId = this.state.data[index].userId;
+    let Translation = this.state.data[index].translation;
+    let Proofreading = this.state.data[index].proofreading;
+    let Embellishment = this.state.data[index].embellishment;
+
+    const fm = new FormData();
+    fm.append("userId", userId);
+    fm.append("Translation", Translation);
+    fm.append("Proofreading", Proofreading);
+    fm.append("Embellishment", Embellishment);
+    const config = {
+      headers: { "Content-Type": "multipart/form-data" }
+    };
+    axios.put("https://localhost:5000/api/fileinfo/?id=" + id, fm, config).then(() => {
+      alert("成功")
+    }).catch(() => { alert("失败") })
+  }
 
   render() {
-
+    let option = [];
+    for (let i = 0; i < this.state.user.length; i++) {
+      option.push(<Option value={this.state.user[i].userId}>{this.state.user[i].user}</Option>)
+    }
     const columns = [
       {
         title: '文件名',
@@ -180,11 +221,43 @@ class RestMange extends Component {
         ...this.getColumnSearchProps('name'),
       },
       {
-        title: '完成情况',
-        dataIndex: 'translation',
-        align: "center",
-        width: '15%',
-        ...this.getColumnSearchProps('translation'),
+        title: "负责人",
+        render: (
+          (item, record, index) => {
+
+            return (
+              <div >
+                <Space style={{ marginBottom: 16 }}>
+                  <Select defaultValue={record.userId} style={{ width: 120 }} onChange={(value) => this.userChange(record.id, index, value, record)}>
+                    {option}
+                  </Select>
+                </Space>
+              </div>
+            )
+          }
+        ),
+        align: "center"
+      },
+      {
+        title: "完成情况",
+        render: (
+          (item, record, index) => {
+
+            return (
+              <div >
+                <Space style={{ marginBottom: 16 }}>
+                  <Checkbox.Group options={this.state.options} 
+                  defaultValue={[this.state.data[index].translation===true?"Translation":"",
+                  this.state.data[index].proofreading===true?"Proofreading":"",
+                  this.state.data[index].embellishment===true?"Embellishment":""
+                ]}
+                   onChange={(e) => this.groupChange(record.id, index, e)} />
+                </Space>
+              </div>
+            )
+          }
+        ),
+        align: "center"
       },
       {
         title: '最后更改时间',
@@ -198,14 +271,14 @@ class RestMange extends Component {
       {
         title: "操作",
         render: (
-          (item, record) => {
-            // console.debug(record);
+          (item, record, index) => {
+
             return (
               <div >
                 <Space style={{ marginBottom: 16 }}>
                   <Button onClick={() => this.onDownload(record.id)}>下载</Button>
-                  <Button>上传</Button>
                   <Button onClick={() => this.Delete(record.id)}>删除 </Button>
+                  <Button onClick={() => this.onChangeAll(record.id, index)}>确定更改 </Button>
                 </Space>
               </div>
             )
